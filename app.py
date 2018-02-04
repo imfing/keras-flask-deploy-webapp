@@ -20,17 +20,18 @@ from gevent.wsgi import WSGIServer
 app = Flask(__name__)
 
 # Model saved with Keras model.save()
-MODEL_PATH = 'models/densenet121.h5'
+MODEL_PATH = 'models/your_model.h5'
 
-# Load model
-model = load_model(MODEL_PATH)
-model._make_predict_function()          # Necessary
-print('Model loaded.')
+# Load your trained model
+# model = load_model(MODEL_PATH)
+# model._make_predict_function()          # Necessary
+# print('Model loaded. Start serving...')
 
 # You can also use pretrained model from Keras
-# https://keras.io/applications/
-# from keras.applications.resnet50 import ResNet50
-# model = ResNet50(weights='imagenet')
+# Check https://keras.io/applications/
+from keras.applications.resnet50 import ResNet50
+model = ResNet50(weights='imagenet')
+print('Model loaded. Check http://127.0.0.1:5000/')
 
 
 def model_predict(img_path, model):
@@ -42,8 +43,8 @@ def model_predict(img_path, model):
     x = np.expand_dims(x, axis=0)
 
     # Be careful how your trained model deals with the input
-    # otherwise, it won't make correct prediction
-    x = preprocess_input(x, mode='torch')
+    # otherwise, it won't make correct prediction!
+    x = preprocess_input(x, mode='caffe')
 
     preds = model.predict(x)
     return preds
@@ -71,7 +72,7 @@ def upload():
         preds = model_predict(file_path, model)
 
         # Process your result for human
-        # pre_class = preds.argmax(axis=-1)             # Simple argmax
+        # pred_class = preds.argmax(axis=-1)            # Simple argmax
         pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
         result = str(pred_class[0][0][1])               # Convert to string
         return result
