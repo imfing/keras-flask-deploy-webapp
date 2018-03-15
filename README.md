@@ -3,6 +3,8 @@
 [![](https://img.shields.io/badge/python-2.7%2C%203.5%2B-green.svg)]()
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 
+> A pretty and customizable web app to deploy your DL model with ease
+
 ------------------
 
 ## Getting started in 10 minutes
@@ -15,7 +17,9 @@
 
 :point_down:Screenshot:
 
-![](https://ws1.sinaimg.cn/large/bc442cabgy1fo5d6lx9hdj20m80ihaeg)
+<p align="center">
+  <img src="https://s18.postimg.org/l01x6fn3d/demo1.png" width="600px" alt="">
+</p>
 
 ------------------
 
@@ -42,7 +46,7 @@ Make sure you have the following installed:
 
 ### Run with Python
 
-Python 2.7 or 3.5+ are supported.
+Python 2.7 or 3.5+ are supported and tested.
 
 ```shell
 $ python app.py
@@ -51,6 +55,10 @@ $ python app.py
 ### Play
 
 Open http://localhost:5000 and have fun. :smiley:
+
+<p align="center">
+  <img src="https://s18.postimg.org/5ekln1vvt/demo2.gif" width="600px" alt="">
+</p>
 
 ------------------
 
@@ -69,10 +77,11 @@ See [Keras applications](https://keras.io/applications/) for more available mode
 
 Check [this section](https://github.com/mtobeiyf/keras-flask-deploy-webapp/blob/master/app.py#L25) in app.py.
 
-### Frontend
+### UI Modification
 
 Modify files in `templates` and `static` directory.
 
+`index.html` for the UI and `main.js` for all the behaviors
 
 ## Deployment
 
@@ -80,9 +89,9 @@ To deploy it for public use, you need to have a public **linux server**.
 
 ### Run the app
 
-Run the script and hide it in background.
+Run the script and hide it in background with `tmux` or `screen`.
 ```
-$ python app.py .
+$ python app.py
 ```
 
 You can also use gunicorn instead of gevent
