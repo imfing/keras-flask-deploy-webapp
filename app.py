@@ -31,6 +31,7 @@ MODEL_PATH = 'models/your_model.h5'
 # Check https://keras.io/applications/
 from keras.applications.resnet50 import ResNet50
 model = ResNet50(weights='imagenet')
+model.predict(np.zeros((1, 224, 224, 3)))
 print('Model loaded. Check http://127.0.0.1:5000/')
 
 
