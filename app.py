@@ -60,7 +60,7 @@ def index():
 def upload():
     if request.method == 'POST':
         # Get the file from post request
-        f = request.files['file']
+        f = request.files['image']
 
         # Save the file to ./uploads
         basepath = os.path.dirname(__file__)
