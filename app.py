@@ -60,7 +60,7 @@ def index():
 def upload():
     if request.method == 'POST':
         # Get the file from post request
-        f = request.files['file']
+        f = request.files['image']
 
         # Save the file to ./uploads
         basepath = os.path.dirname(__file__)
@@ -83,5 +83,5 @@ if __name__ == '__main__':
     # app.run(port=5002, debug=True)
 
     # Serve the app with gevent
-    http_server = WSGIServer(('', 5000), app)
+    http_server = WSGIServer(('0.0.0.0', 5000), app)
     http_server.serve_forever()
