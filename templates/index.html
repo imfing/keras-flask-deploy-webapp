@@ -1,11 +1,25 @@
 {% extends "base.html" %} {% block content %}
 
-<h2>Image Classifier</h2>
+<h2>An early detect tool for mal </h2>
 
 <div>
     <form id="upload-file" method="post" enctype="multipart/form-data">
+
+      <body>
+      This is a self-diagnostic tool to help people pre-examine skin and thus take early protection and treatment.
+
+      An official report by WHO indicates that there is a correlation between Climate Change and Human Health. There are several studies showing that solar radiation is the main cause of skin cancer such as melanoma and other types. The most vulnerable group are descendants of White Caucasian, especially a group of people living in an ambient UVR.
+
+      The goal of this app is raising awareness of how climate change would affect our personal health.
+
+      A core of this app is previously built of one of a top 1% of the first Healthcare Challenge in 2018 by a leading dermatology lab and technology from Microsoft and Google in 2018.
+
+      <p> Ref. https://www.who.int/globalchange/climate/summary/en/index5.html </p>
+
+      </body>
+
         <label for="imageUpload" class="upload-label">
-            Choose...
+          Choose...
         </label>
         <input type="file" name="image" id="imageUpload" accept=".png, .jpg, .jpeg">
     </form>
