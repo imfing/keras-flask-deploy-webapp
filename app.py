@@ -5,49 +5,31 @@ import os
 import glob
 import re
 import numpy as np
-
-# Keras
-from keras.applications.imagenet_utils import preprocess_input, decode_predictions
-from keras.models import load_model
-from keras.preprocessing import image
-
+import tensorflow as tf
 # Flask utils
 from flask import Flask, redirect, url_for, request, render_template
 from werkzeug.utils import secure_filename
 from gevent.pywsgi import WSGIServer
 
+from PIL import Image
+import numpy as np
+
 # Define a flask app
 app = Flask(__name__)
 
-# Model saved with Keras model.save()
-MODEL_PATH = 'models/your_model.h5'
+def load_graph(frozen_graph_filename):
+    # We load the protobuf file from the disk and parse it to retrieve the
+    # unserialized graph_def
+    with tf.gfile.GFile(frozen_graph_filename, "rb") as f:
+        graph_def = tf.GraphDef()
+        graph_def.ParseFromString(f.read())
 
-# Load your trained model
-# model = load_model(MODEL_PATH)
-# model._make_predict_function()          # Necessary
-# print('Model loaded. Start serving...')
-
-# You can also use pretrained model from Keras
-# Check https://keras.io/applications/
-from keras.applications.resnet50 import ResNet50
-model = ResNet50(weights='imagenet')
-print('Model loaded. Check http://127.0.0.1:5000/')
-
-
-def model_predict(img_path, model):
-    img = image.load_img(img_path, target_size=(224, 224))
-
-    # Preprocessing the image
-    x = image.img_to_array(img)
-    # x = np.true_divide(x, 255)
-    x = np.expand_dims(x, axis=0)
-
-    # Be careful how your trained model deals with the input
-    # otherwise, it won't make correct prediction!
-    x = preprocess_input(x, mode='caffe')
-
-    preds = model.predict(x)
-    return preds
+    # Then, we import the graph_def into a new Graph and returns it
+    with tf.Graph().as_default() as graph:
+        # The name var will prefix every op/nodes in your graph
+        # Since we load everything in a new graph, this is not needed
+        tf.import_graph_def(graph_def, name="import")
+    return graph
 
 
 @app.route('/', methods=['GET'])
@@ -69,18 +51,27 @@ def upload():
         f.save(file_path)
 
         # Make prediction
-        preds = model_predict(file_path, model)
+        image = Image.open(file_path)
+        image = np.array(image)
+        y_out = persistent_sess.run(y, feed_dict={
+            x: image
+        })
 
-        # Process your result for human
-        # pred_class = preds.argmax(axis=-1)            # Simple argmax
-        pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
-        result = str(pred_class[0][0][1])               # Convert to string
-        return result
+        prediction = np.argmax(y_out, 1)
+        result = '%.2f_%.2f' % (y_out[0][0], y_out[0][1])
+        return result, prediction
     return None
 
 
 if __name__ == '__main__':
-    # app.run(port=5002, debug=True)
+    print('Loading the model')
+    graph = load_graph('/home/emma/iasante/saved_modeled.pb') #(args.frozen_model_filename)
+    x = graph.get_tensor_by_name(u'import/Cast:0')
+    y = graph.get_tensor_by_name(u'import/final_guess:0')
+    # gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=args.gpu_memory)
+    # sess_config = tf.ConfigProto(gpu_options=gpu_options)
+    # persistent_sess = tf.Session(graph=graph, config=sess_config)
+    persistent_sess = tf.Session(graph=graph)
 
     # Serve the app with gevent
     http_server = WSGIServer(('0.0.0.0', 5000), app)
