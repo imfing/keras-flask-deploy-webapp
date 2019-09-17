@@ -59,7 +59,7 @@ def upload():
 
         prediction = np.argmax(y_out, 1)
         result = '%.2f_%.2f' % (y_out[0][0], y_out[0][1])
-        return result, prediction
+        return result
     return None
 
 
