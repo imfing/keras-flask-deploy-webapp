@@ -65,7 +65,7 @@ def upload():
 
 if __name__ == '__main__':
     print('Loading the model')
-    graph = load_graph('/home/emma/iasante/saved_modeled.pb') #(args.frozen_model_filename)
+    graph = load_graph('./models/iasante_model.pb') #(args.frozen_model_filename)
     x = graph.get_tensor_by_name(u'import/Cast:0')
     y = graph.get_tensor_by_name(u'import/final_guess:0')
     # gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=args.gpu_memory)
