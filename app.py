@@ -16,6 +16,9 @@ from flask import Flask, redirect, url_for, request, render_template
 from werkzeug.utils import secure_filename
 from gevent.pywsgi import WSGIServer
 
+
+port = 5001
+
 # Define a flask app
 app = Flask(__name__)
 
@@ -31,7 +34,7 @@ MODEL_PATH = 'models/your_model.h5'
 # Check https://keras.io/applications/
 from keras.applications.resnet50 import ResNet50
 model = ResNet50(weights='imagenet')
-print('Model loaded. Check http://127.0.0.1:5000/')
+print('Model loaded. Check http://127.0.0.1:'+str(port)+'/')
 
 
 def model_predict(img_path, model):
@@ -83,5 +86,5 @@ if __name__ == '__main__':
     # app.run(port=5002, debug=True)
 
     # Serve the app with gevent
-    http_server = WSGIServer(('0.0.0.0', 5000), app)
+    http_server = WSGIServer(('0.0.0.0', port), app)
     http_server.serve_forever()
