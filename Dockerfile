@@ -1,11 +1,10 @@
-FROM python:2.7.16-slim-stretch
+FROM python:3.6-slim-stretch
 
-COPY . /usr/src/app
-WORKDIR /usr/src/app
+ADD requirements.txt /
+RUN pip install -r /requirements.txt
 
-RUN pip install Werkzeug Flask numpy Keras gevent pillow h5py tensorflow
-
+ADD . /app
+WORKDIR /app
 
 EXPOSE 5000
 CMD [ "python" , "app.py"]
-
