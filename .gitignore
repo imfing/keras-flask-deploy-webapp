@@ -1,3 +1,30 @@
-uploads/*.jpg
-uploads/*.png
-models/*.h5
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Editors
+.vscode/
+.idea/
+
+# Custom data directory
+uploads/*
+models/*
+
+!uploads/README.md
+!models/README.md
