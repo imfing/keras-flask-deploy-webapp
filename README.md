@@ -17,8 +17,23 @@
 :point_down: Screenshot:
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/5097752/71063354-8caa1d00-213a-11ea-86eb-879238887c1f.png" height="500px" style="    box-shadow: 3px 3px 1px #ccc;"alt="">
+  <img src="https://user-images.githubusercontent.com/5097752/71063354-8caa1d00-213a-11ea-86eb-879238887c1f.png" height="480px" alt="">
 </p>
+
+## New Features :fire:
+
+- Enhanced, mobile-friendly UI
+- Support image drag-and-drop
+- Use vanilla JavaScript, HTML and CSS. Remove jQuery and Bootstrap
+- Switch to TensorFlow 2.0 and [tf.keras](https://www.tensorflow.org/guide/keras) by default
+- Upgrade Docker base image to Python 3 (it's 2020)
+
+<p float="left">
+  <img src="https://user-images.githubusercontent.com/5097752/71065048-61c1c800-213e-11ea-92f1-274cbe4734ba.png" height="330px" alt="">
+  <img src="https://user-images.githubusercontent.com/5097752/71062921-aeef6b00-2139-11ea-8b23-6b9eb1e326ca.png" height="330px" alt="">
+</p>
+
+_If you need to use Python 2.x or TensorFlow 1.x, check out the [legacy](https://github.com/mtobeiyf/keras-flask-deploy-webapp/tree/legacy) snapshot_
 
 
 ------------------
@@ -59,9 +74,8 @@ $ python app.py
 
 Open http://localhost:5000 and have fun. :smiley:
 
-
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/5097752/71062921-aeef6b00-2139-11ea-8b23-6b9eb1e326ca.png" height="300px" alt="">
+  <img src="https://user-images.githubusercontent.com/5097752/71064959-3c34be80-213e-11ea-8e13-91800ca2d345.gif" height="480px" alt="">
 </p>
 
 ------------------
@@ -133,6 +147,10 @@ server {
 ```
 
 </details>
+
+## Future
+
+- [ ] Support detection and segmentation models
 
 ## More resources
 
