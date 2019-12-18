@@ -1,1 +1,1 @@
-Put your own models under this directory.
+You can put any trained models from TensorFlow/Keras/PyTorch here.
