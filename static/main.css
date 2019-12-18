@@ -43,6 +43,7 @@ body {
 .main .title h3 {
   font-size: 2.3rem;
   font-weight: 300;
+  margin: 0.8rem 0;
 }
 
 .hidden {
