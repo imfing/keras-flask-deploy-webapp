@@ -1,12 +1,14 @@
 # Deploy Keras Model with Flask as Web App in 10 Minutes
 
-[![](https://img.shields.io/badge/python-3.5%2B-green.svg)]()
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
+[![](https://img.shields.io/badge/python-3.5%2B-green.svg)]()
+![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
 
-> A pretty and customizable web app to deploy your DL model with ease
+A pretty and customizable web app to deploy your DL model with ease
 
+<a href="https://www.buymeacoffee.com/fing" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee"></a>
 
-## Getting started in 10 minutes
+## Getting Started in 10 Minutes
 
 - Clone this repo 
 - Install requirements
@@ -17,7 +19,7 @@
 :point_down: Screenshot:
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/5097752/71063354-8caa1d00-213a-11ea-86eb-879238887c1f.png" height="480px" alt="">
+  <img src="https://user-images.githubusercontent.com/5097752/71063354-8caa1d00-213a-11ea-86eb-879238887c1f.png" height="420px" alt="">
 </p>
 
 ## New Features :fire:
@@ -148,10 +150,10 @@ server {
 
 </details>
 
-## Future
+## Future Plan
 
 - [ ] Support detection and segmentation models
 
-## More resources
+## More Resources
 
 [Building a simple Keras + deep learning REST API](https://blog.keras.io/building-a-simple-keras-deep-learning-rest-api.html)
