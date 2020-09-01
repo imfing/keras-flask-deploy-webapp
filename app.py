@@ -25,7 +25,9 @@ app = Flask(__name__)
 
 # You can use pretrained model from Keras
 # Check https://keras.io/applications/
-from keras.applications.mobilenet_v2 import MobileNetV2
+# or https://www.tensorflow.org/api_docs/python/tf/keras/applications
+
+from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2
 model = MobileNetV2(weights='imagenet')
 
 print('Model loaded. Check http://127.0.0.1:5000/')
