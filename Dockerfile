@@ -1,9 +1,9 @@
-FROM python:3.6-slim-stretch
+FROM tensorflow/tensorflow:2.5.1
 
-ADD requirements.txt /
-RUN pip install -r /requirements.txt
+COPY requirements.txt /
+RUN python3 -m pip install -r /requirements.txt
 
-ADD . /app
+COPY . /app
 WORKDIR /app
 
 EXPOSE 5000
