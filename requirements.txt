@@ -3,5 +3,5 @@ gevent==1.4.0
 h5py==3.1.0
 numpy==1.19.5
 Pillow==8.3.2
-tensorflow-cpu==2.5.1
+tensorflow-cpu==2.7.2
 Werkzeug==2.0.1
