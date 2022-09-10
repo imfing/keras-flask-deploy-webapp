@@ -1,32 +1,59 @@
 {% extends "base.html" %} {% block content %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-<div class="main">
-  <div class="title">
-    <h3>Image Classifier</h3>
-    <!-- <p>
-      <small>A web app demo</small>
-    </p> -->
-  </div>
+    <div class="main">
+        <!-- Title Row with Image and App Name -->
+        <div class="title">
+            <img src="{{ url_for('static', filename='logo.png') }}" align="middle" class="melonHead"/>
+            <h3 class="titleText">EmotiBot</h3>
+        </div>
+        <!-- -------- -->
+        <!-- File Upload Input Box -->
+        <div id="row" style="padding-bottom: 10px">
+            <div class="panel column">
+                <input id="file-upload" class="hidden" type="file" accept="audio/*" name="audio_file"/>
+                <label for="file-upload" id="file-drag" class="upload-box">
+                    <div id="upload-caption">Drop your audio file here or click to select (.wav)</div>
+                    <p id="image-preview" class="hidden"/>
+                </label>
 
-  <div class="panel">
-    <input id="file-upload" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg" />
-    <label for="file-upload" id="file-drag" class="upload-box">
-      <div id="upload-caption">Drop image here or click to select</div>
-      <img id="image-preview" class="hidden" />
-    </label>
-  </div>
-  <div style="margin-bottom: 2rem;">
-    <input type="button" value="Submit" class="button" onclick="submitImage();" />
-    <input type="button" value="Clear" class="button" onclick="clearImage();" />
-  </div>
+            </div>
+            <div class="column" id="audio-play" style="display:none; padding-left:20px">
+                <h3 class="subText1">Play the file you uploaded:</h3>
+                <audio id="audio" controls>
+                    <source src="" id="src"/>
+                </audio>
+            </div>
+        </div>
+        <div class="text-column">
+            <h3 class="subText2 hidden" id="was-success">File Uploaded Successfully! Click submit to see results.</h3>
+        </div>
+        <!-- -------- -->
+        <!-- Submit & Clear Buttons -->
+        <div style="margin-bottom: 2rem;">
+            <input type="button" value="Submit" class="button" onclick="submitAudio();"/>
+            <input type="button" value="Clear" class="button" onclick="clearAudio();"/>
 
-  <div id="image-box">
-    <img id="image-display" />
-    <div id="pred-result" class="hidden"></div>
-    <svg id="loader" class="hidden" viewBox="0 0 32 32" width="32" height="32">
-      <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
-    </svg>
-  </div>
-</div>
+        </div>
+        <!-- -------- -->
+        <!-- Instructions and Loading Icon -->
+        <div class="text-column">
+            <h3 class="subText1" id='willhetext'>What does EmotiBot think? <br> Choose an audio file and find out!</h3>
+            <div class="lds-ripple hidden" id='spinner'>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <!-- -------- -->
+        <!-- Model Results (Hidden at first) -->
+        <div id="image-box">
+            <h3 class="subText3 hidden" id="forthissong">I think this person is:</h3>
+            <img id="image-display" style="width:50%"/>
+            <div id="pred-result" class="hidden"></div>
+            <h3 class="subText2 hidden" id="justopinion"></h3>
+        </div>
+        <!-- -------- -->
+    </div>
+
 
 {% endblock %}
