@@ -31,11 +31,12 @@ function fileSelectHandler(e) {
 //========================================================================
 // Web page elements for functions to use
 //========================================================================
-
+ 
 var imagePreview = document.getElementById("image-preview");
 var imageDisplay = document.getElementById("image-display");
 var uploadCaption = document.getElementById("upload-caption");
 var predResult = document.getElementById("pred-result");
+var confidenceScore = document.getElementById("confidence-score");
 var loader = document.getElementById("loader");
 
 //========================================================================
@@ -66,11 +67,13 @@ function clearImage() {
   imagePreview.src = "";
   imageDisplay.src = "";
   predResult.innerHTML = "";
+  confidenceScore.innerHTML = "";
 
   hide(imagePreview);
   hide(imageDisplay);
   hide(loader);
   hide(predResult);
+  hide(confidenceScore);
   show(uploadCaption);
 
   imageDisplay.classList.remove("loading");
@@ -91,6 +94,7 @@ function previewFile(file) {
 
     // reset
     predResult.innerHTML = "";
+    confidenceScore.innerHTML= "";
     imageDisplay.classList.remove("loading");
 
     displayImage(reader.result, "image-display");
@@ -133,7 +137,9 @@ function displayResult(data) {
   // imageDisplay.classList.remove("loading");
   hide(loader);
   predResult.innerHTML = data.result;
+  confidenceScore.innerHTML = data.probability;
   show(predResult);
+  show(confidenceScore);
 }
 
 function hide(el) {

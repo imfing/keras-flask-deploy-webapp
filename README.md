@@ -1,26 +1,9 @@
-# Deploy Keras Model with Flask as Web App in 10 Minutes
+# Deploying Brain Tumor Keras Pre-Trained Model with Flask as Web App
 
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 [![](https://img.shields.io/badge/python-3.5%2B-green.svg)]()
 ![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
 
-A pretty and customizable web app to deploy your DL model with ease
-
-<a href="https://www.buymeacoffee.com/fing" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee"></a>
-
-## Getting Started in 10 Minutes
-
-- Clone this repo 
-- Install requirements
-- Run the script
-- Go to http://localhost:5000
-- Done! :tada:
-
-:point_down: Screenshot:
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/5097752/71063354-8caa1d00-213a-11ea-86eb-879238887c1f.png" height="420px" alt="">
-</p>
 
 ## New Features :fire:
 
@@ -40,32 +23,13 @@ _If you need to use Python 2.x or TensorFlow 1.x, check out the [legacy](https:/
 
 ------------------
 
-## Run with Docker
+## Installation
 
-With **[Docker](https://www.docker.com)**, you can quickly build and run the entire application in minutes :whale:
-
-```shell
-# 1. First, clone the repo
-$ git clone https://github.com/mtobeiyf/keras-flask-deploy-webapp.git
-$ cd keras-flask-deploy-webapp
-
-# 2. Build Docker image
-$ docker build -t keras_flask_app .
-
-# 3. Run!
-$ docker run -it --rm -p 5000:5000 keras_flask_app
-```
-
-Open http://localhost:5000 and wait till the webpage is loaded.
-
-## Local Installation
-
-It's easy to install and run it on your computer.
 
 ```shell
 # 1. First, clone the repo
-$ git clone https://github.com/mtobeiyf/keras-flask-deploy-webapp.git
-$ cd keras-flask-deploy-webapp
+$ git clone https://github.com/HameemDakheel/brain-tumors-classification-webapp.git
+$ cd brain-tumors-classification-webapp
 
 # 2. Install Python packages
 $ pip install -r requirements.txt
@@ -76,30 +40,6 @@ $ python app.py
 
 Open http://localhost:5000 and have fun. :smiley:
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/5097752/71064959-3c34be80-213e-11ea-8e13-91800ca2d345.gif" height="480px" alt="">
-</p>
-
-------------------
-
-## Customization
-
-It's also easy to customize and include your models in this app.
-
-<details>
- <summary>Details</summary>
-
-### Use your own model
-
-Place your trained `.h5` file saved by `model.save()` under models directory.
-
-Check the [commented code](https://github.com/mtobeiyf/keras-flask-deploy-webapp/blob/master/app.py#L37) in app.py.
-
-### Use other pre-trained model
-
-See [Keras applications](https://keras.io/applications/) for more available models such as DenseNet, MobilNet, NASNet, etc.
-
-Check [this section](https://github.com/mtobeiyf/keras-flask-deploy-webapp/blob/master/app.py#L26) in app.py.
 
 ### UI Modification
 
@@ -150,10 +90,14 @@ server {
 
 </details>
 
-## Future Plan
-
-- [ ] Support detection and segmentation models
 
 ## More Resources
 
 [Building a simple Keras + deep learning REST API](https://blog.keras.io/building-a-simple-keras-deep-learning-rest-api.html)
+
+
+## Authors
+
+* **Xin** - *Initial work* - [imfing](https://github.com/imfing)
+
+See also the [original project](https://github.com/imfing/keras-flask-deploy-webapp).
