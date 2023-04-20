@@ -1,5 +1,6 @@
 Flask==1.1.1
 gevent==1.4.0
+greenlet==0.4.13
 h5py==3.1.0
 numpy==1.19.5
 Pillow==8.3.2
