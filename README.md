@@ -6,7 +6,8 @@
 
 A pretty and customizable web app to deploy your DL model with ease
 
-<a href="https://www.buymeacoffee.com/fing" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee"></a>
+> **Note**
+> This project is not actively maintained. Consider [gradio](https://github.com/gradio-app/gradio) or [streamlit](https://github.com/streamlit/streamlit) to create web apps for ML models.
 
 ## Getting Started in 10 Minutes
 
