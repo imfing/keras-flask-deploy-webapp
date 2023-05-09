@@ -1,6 +1,7 @@
 name: Create and publish a Docker image
 
 on:
+  workflow_dispatch:
   pull_request:
   push:
     tags:
@@ -44,7 +45,7 @@ jobs:
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
         with:
           context: .
-          push: false
+          push: ${{ github.event_name != 'pull_request' }}
           platforms: linux/amd64,linux/arm64/v8
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
