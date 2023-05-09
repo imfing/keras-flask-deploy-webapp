@@ -1,8 +1,6 @@
-Flask==1.1.1
-gevent==1.4.0
-greenlet==0.4.13
-h5py==3.1.0
-numpy==1.19.5
-Pillow==8.3.2
-tensorflow-cpu==2.5.1
-Werkzeug==2.0.1
+Flask~=2.3.2
+keras~=2.12.0
+tensorflow~=2.12.0
+numpy~=1.23.5
+Pillow~=9.5.0
+gevent~=22.10.2
