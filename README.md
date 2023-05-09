@@ -3,7 +3,7 @@
 [![](https://img.shields.io/badge/python-3.9%2B-green.svg)]()
 ![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
 
-A minimal and customizableto deploy your image models as web app easily.
+A minimal and customizable repo to deploy your image models as web app easily.
 
 ## Getting Started
 
@@ -36,6 +36,14 @@ _If you need to use Python 2.x or TensorFlow 1.x, check out the [legacy](https:/
 ------------------
 
 ## Run with Docker
+
+#### Use prebuilt image
+
+```
+$ docker run --rm -p 5000:5000 ghcr.io/imfing/keras-flask-deploy-webapp:latest
+```
+
+#### Build locally
 
 With **[Docker](https://www.docker.com)**, you can quickly build and run the entire application in minutes :whale:
 
