@@ -1,10 +1,12 @@
-FROM tensorflow/tensorflow:2.5.1
+FROM python:3.11-slim-buster
 
-COPY requirements.txt /
-RUN python3 -m pip install -r /requirements.txt
+# Install dependencies
+COPY requirements.txt /tmp/
+RUN pip install --requirement /tmp/requirements.txt
 
 COPY . /app
 WORKDIR /app
 
+# Run the application on port 5000
 EXPOSE 5000
-CMD [ "python" , "app.py"]
+CMD ["python", "app.py"]
