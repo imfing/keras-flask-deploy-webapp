@@ -1,21 +1,15 @@
 # Deploy Keras Model with Flask as Web App in 10 Minutes
 
-[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
-[![](https://img.shields.io/badge/python-3.5%2B-green.svg)]()
+[![](https://img.shields.io/badge/python-3.9%2B-green.svg)]()
 ![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
 
-A pretty and customizable web app to deploy your DL model with ease
+A minimal and customizableto deploy your image models as web app easily.
 
-> **Note**
-> This project is not actively maintained. Consider [gradio](https://github.com/gradio-app/gradio) or [streamlit](https://github.com/streamlit/streamlit) to create web apps for ML models.
+## Getting Started
 
-## Getting Started in 10 Minutes
-
-- Clone this repo 
-- Install requirements
+- Clone this repo
 - Run the script
-- Go to http://localhost:5000
-- Done! :tada:
+- Go to http://localhost:5000 and enjoy :tada:
 
 :point_down: Screenshot:
 
@@ -27,9 +21,9 @@ A pretty and customizable web app to deploy your DL model with ease
 
 - Enhanced, mobile-friendly UI
 - Support image drag-and-drop
-- Use vanilla JavaScript, HTML and CSS. Remove jQuery and Bootstrap
-- Switch to TensorFlow 2.0 and [tf.keras](https://www.tensorflow.org/guide/keras) by default
-- Upgrade Docker base image to Python 3 (it's 2020)
+- Use vanilla JavaScript, HTML and CSS. No jQuery or Bootstrap
+- Switch to TensorFlow 2.x and [tf.keras](https://www.tensorflow.org/guide/keras) by default
+- Upgrade Docker base image to Python 3.11
 
 <p float="left">
   <img src="https://user-images.githubusercontent.com/5097752/71065048-61c1c800-213e-11ea-92f1-274cbe4734ba.png" height="330px" alt="">
@@ -47,7 +41,7 @@ With **[Docker](https://www.docker.com)**, you can quickly build and run the ent
 
 ```shell
 # 1. First, clone the repo
-$ git clone https://github.com/mtobeiyf/keras-flask-deploy-webapp.git
+$ git clone https://github.com/imfing/keras-flask-deploy-webapp.git
 $ cd keras-flask-deploy-webapp
 
 # 2. Build Docker image
@@ -65,7 +59,7 @@ It's easy to install and run it on your computer.
 
 ```shell
 # 1. First, clone the repo
-$ git clone https://github.com/mtobeiyf/keras-flask-deploy-webapp.git
+$ git clone https://github.com/imfing/keras-flask-deploy-webapp.git
 $ cd keras-flask-deploy-webapp
 
 # 2. Install Python packages
@@ -86,6 +80,9 @@ Open http://localhost:5000 and have fun. :smiley:
 ## Customization
 
 It's also easy to customize and include your models in this app.
+
+> **Note**
+> Also consider [gradio](https://github.com/gradio-app/gradio) or [streamlit](https://github.com/streamlit/streamlit) to create complicated web apps for ML models.
 
 <details>
  <summary>Details</summary>
@@ -113,11 +110,11 @@ Modify files in `templates` and `static` directory.
 
 ## Deployment
 
-To deploy it for public use, you need to have a public **linux server**.
+To deploy it for public use, you need to have a **public server**.
 
 <details>
  <summary>Details</summary>
-  
+
 ### Run the app
 
 Run the script and hide it in background with `tmux` or `screen`.
