@@ -1,0 +1,10 @@
+services:
+  web:
+    restart: always
+    build:
+      context: .
+    image: keras_flask_app
+    stdin_open: true
+    tty: true
+    ports:
+      - "5000:5000"

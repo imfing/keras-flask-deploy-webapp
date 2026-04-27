@@ -109,12 +109,28 @@ function predictImage(image) {
     },
     body: JSON.stringify(image)
   })
+    //.then(resp => {
+    //  if (resp.ok)
+    //   resp.json().then(data => {
+    //      displayResult(data);
+    //    });
+    //})
     .then(resp => {
-      if (resp.ok)
-        resp.json().then(data => {
+      resp.json().then(data => {
+        if (resp.ok) {
+          // Success - display prediction result
           displayResult(data);
-        });
+        } else {
+          // Error - hide loader and show error message from server
+          hide(loader);
+          imageDisplay.classList.remove("loading");
+          window.alert(data.error);
+        }
+      });
     })
+
+
+    
     .catch(err => {
       console.log("An error occured", err.message);
       window.alert("Oops! Something went wrong.");
